@@ -16,19 +16,19 @@ const Footer = () => {
           </div>
 
           <div className="flex gap-6">
-            <Link href={personalInfo.github} target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+            <Link href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-primary transition-colors">
               <Github size={20} />
             </Link>
-            <Link href={personalInfo.linkedin} target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+            <Link href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary transition-colors">
               <Linkedin size={20} />
             </Link>
-            <Link href={personalInfo.instagram} target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+            <Link href={personalInfo.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-muted-foreground hover:text-primary transition-colors">
               <Instagram size={20} />
             </Link>
-            <a href={`mailto:${personalInfo.email}`} className="text-muted-foreground hover:text-primary transition-colors">
+            <a href={`mailto:${personalInfo.email}`} aria-label="Email" className="text-muted-foreground hover:text-primary transition-colors">
               <Mail size={20} />
             </a>
-            <a href={`tel:${personalInfo.phone}`} className="text-muted-foreground hover:text-primary transition-colors">
+            <a href={`tel:${personalInfo.phone}`} aria-label="Phone" className="text-muted-foreground hover:text-primary transition-colors">
               <Phone size={20} />
             </a>
           </div>
@@ -36,7 +36,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-border/50 text-center">
           <p className="text-muted-foreground text-xs">
-            © {currentYear} Nishant Kumar. Built with Next.js, Tailwind CSS & shadcn/ui.
+            &copy; {currentYear} Nishant Kumar. Built with Next.js, Tailwind CSS & shadcn/ui.
           </p>
         </div>
       </div>

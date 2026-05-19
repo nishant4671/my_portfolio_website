@@ -1,6 +1,3 @@
-"use client";
-
-import React from "react";
 import { personalInfo } from "@/lib/data";
 import { FileDown, FileText, ExternalLink } from "lucide-react";
 import Link from "next/link";
@@ -38,7 +35,7 @@ const ResumeSection = () => {
             </a>
           </Button>
           <Button asChild variant="outline" size="lg" className="border-border hover:bg-muted text-foreground font-bold h-14 px-8 rounded-xl transition-all">
-            <Link href="/resume" target="_blank">
+            <Link href="/resume" target="_blank" rel="noopener noreferrer">
               <FileText className="mr-2" size={20} />
               View Resume
               <ExternalLink className="ml-2 opacity-50" size={16} />

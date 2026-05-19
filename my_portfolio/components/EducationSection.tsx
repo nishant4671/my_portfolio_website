@@ -1,6 +1,3 @@
-"use client";
-
-import React from "react";
 import Link from "next/link";
 import { education } from "@/lib/data";
 import { Card, CardHeader, CardTitle } from "@/components/ui/Card";
@@ -8,7 +5,7 @@ import { GraduationCap } from "lucide-react";
 
 const EducationCard = ({ item }: { item: any }) => {
   return (
-    <Link href={`/education/${item.slug}`} target="_blank">
+    <Link href={`/education/${item.slug}`} target="_blank" rel="noopener noreferrer">
       <Card className="project-card-glow h-full flex flex-col bg-card border-border hover:translate-y-[-4px] transition-all duration-300">
         <CardHeader className="flex flex-row items-center gap-4">
           <div className="p-3 bg-muted rounded-lg">
