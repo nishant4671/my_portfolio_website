@@ -42,11 +42,21 @@ export default function AdminPage() {
   const [tempTech, setTempTech] = useState("");
   const [tempDesc, setTempDesc] = useState("");
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would be validated via an API route
-    // For now, we'll check it in the update API route
-    setIsAuthenticated(true);
+    setIsLoading(true);
+    setMessage({ type: "", text: "" });
+
+    try {
+      const res = await axios.post("/api/admin/login", { password });
+      if (res.data.success) {
+        setIsAuthenticated(true);
+      }
+    } catch (error: any) {
+      setMessage({ type: "error", text: "Invalid password. Please check your Vercel Environment Variables." });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleAddProject = async (e: React.FormEvent) => {
