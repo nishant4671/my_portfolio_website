@@ -1,0 +1,206 @@
+{
+  "projects": [
+    {
+      "slug": "arogya-saathi",
+      "title": "Arogya Saathi: A Unified Healthcare Ecosystem for Rural India",
+      "shortTitle": "Arogya Saathi",
+      "skills": ["Next.js", "Redis"],
+      "tech": ["Next.js 15", "Node.js", "TypeScript", "Redis", "PostgreSQL", "Tailwind CSS"],
+      "date": "Sep 2024 - Nov 2024 (SIH 2024)",
+      "role": "Lead Full-Stack Developer",
+      "domain": "Public Sector Healthcare / Social Impact",
+      "status": "National Finalist, Smart India Hackathon (SIH) 2024",
+      "description": [
+        "In rural India, healthcare delivery is often hampered by systemic fragmentation. Patients frequently travel long distances only to find doctors unavailable, medical records are often lost or siloed in physical files, and rural health centers (PHCs) struggle with inventory management of critical medicines. For the government, a lack of real-time data makes it impossible to allocate resources effectively during health crises. Arogya Saathi was conceived as a digital bridge to close these gaps, specifically tailored for the linguistic and infrastructure-challenged environments of states like Punjab.",
+        "As the Lead Full-Stack Developer, I designed a multi-tenant, high-concurrency architecture capable of serving millions. The system is built on Next.js 15 for the frontend, utilizing the App Router to optimize performance and SEO—critical for low-bandwidth rural connections. The backend, powered by Node.js and TypeScript, follows a modular service-oriented architecture to ensure maintainability.",
+        "One of the core technical challenges was handling \"registration bursts\"—moments when thousands of citizens might register simultaneously during a local health drive. To solve this, I implemented distributed locking using Redis. This prevented race conditions in the database when multiple workers tried to update shared resources (like hospital bed availability or medicine stock) simultaneously. For the data layer, we used PostgreSQL for its robust relational integrity, which is vital for medical records where data consistency is non-negotiable.",
+        "The platform provides a unified experience across three distinct user roles: Patients (can book appointments, view centralized medical history, multi-language support), ASHA/Staff Workers (mobile-optimized portal for field updates), and Doctors (streamlined dashboard with holistic patient history). Arogya Saathi was vetted by SIH judges and government officials for its potential to reduce patient wait times by an estimated 40%."
+      ],
+      "howIDidIt": "I focused on high-concurrency handling using Redis for distributed locking and optimized the frontend for low-bandwidth environments using Next.js 15's latest performance features."
+    },
+    {
+      "slug": "hippocrates-ai",
+      "title": "Hippocrates AI: Clinical Decision Support with RAG",
+      "shortTitle": "Hippocrates AI",
+      "skills": ["LangChain", "FAISS"],
+      "tech": ["LangChain", "Mistral-7B", "ChromaDB", "spaCy", "Ollama", "FAISS"],
+      "date": "Sep 2024 - Nov 2024",
+      "role": "AI Research Lead",
+      "domain": "Healthcare AI / NLP",
+      "description": [
+        "While Large Language Models (LLMs) have revolutionized NLP, their adoption in medicine is hindered by \"hallucinations\"—the generation of plausible but factually incorrect medical information. In a clinical setting, a hallucination isn't just a bug; it's a patient safety risk. Hippocrates AI was developed to solve this by creating a Retrieval-Augmented Generation (RAG) pipeline that grounds AI responses in verified medical literature.",
+        "As the AI Research Lead, I architected a pipeline that moves away from the \"black box\" nature of standard LLMs. We used LangChain to orchestrate the retrieval process. We indexed thousands of pages from the Merck Manual and PubMed Central into ChromaDB, a vector database. We used the all-MiniLM-L6-v2 embedding model to transform medical text into high-dimensional vectors, allowing for semantic search rather than just keyword matching.",
+        "For data privacy, the entire system runs locally using Ollama to serve a Mistral-7B model. This ensures that sensitive patient queries never leave the local infrastructure. To further increase trust, I implemented Explainable AI (XAI) features. Every suggestion provided by Hippocrates AI is accompanied by direct citations from the source material and a color-coded confidence score.",
+        "A major hurdle was latency. Initial RAG queries took upwards of 8 seconds. I optimized this to 2.4 seconds by implementing 4-bit quantization (AWQ) on the Mistral model and using KV-caching. Our validation showed a 94% reduction in hallucinations compared to vanilla GPT-3.5, achieving an internal diagnostic accuracy of 89.2%."
+      ],
+      "howIDidIt": "I built a RAG pipeline using LangChain and ChromaDB, and optimized inference latency using 4-bit quantization on a locally served Mistral-7B model."
+    },
+    {
+      "slug": "aewis",
+      "title": "AEWIS: Academic Early Warning & Intervention System",
+      "shortTitle": "AEWIS",
+      "skills": ["Pandas", "Streamlit"],
+      "tech": ["Python", "Pandas", "Streamlit", "Plotly", "CSV/Excel processing"],
+      "date": "Ongoing project",
+      "role": "Solo Developer",
+      "domain": "EdTech / Predictive Analytics",
+      "description": [
+        "In traditional academic environments, \"at-risk\" students are often identified only after they have failed their final exams. By this point, it is too late for intervention. AEWIS was designed to close this gap by analyzing attendance and mid-term data in real-time, providing educators with a \"predictive window\" where they can actually make a difference.",
+        "Most educational institutions are hesitant to adopt new software because of the friction involved in integrating with existing ERP systems. I designed AEWIS with a Zero-ERP Integration strategy. Instead of complex API hooks, the system allows admins to simply upload existing CSV/Excel exports from systems like Fedena or Moodle.",
+        "The \"Risk Engine\" is built using Vectorized Pandas logic. By avoiding iterative loops and using vectorization, the engine can scan through thousands of student records instantly to flag students based on three primary metrics: Attendance (below 75%), Trend Analysis (score decline of 15%+ across assessments), and Absolute Risk (below 40% in core subjects).",
+        "Using Streamlit and Plotly, I created \"Admin Heatmaps\" that visualize \"crisis subjects\"—classes where a large percentage of students are flagging as at-risk. Teachers have an \"Intervention Loop\" where they can log actions and see the student's risk score update in real-time."
+      ],
+      "howIDidIt": "I leveraged vectorized operations in Pandas for high-speed data processing and used Streamlit for rapid dashboard deployment."
+    },
+    {
+      "slug": "ignar-api-shield",
+      "title": "Ignar API Shield: Automated Governance for Financial Ecosystems",
+      "shortTitle": "Ignar API Shield",
+      "skills": ["FastAPI", "Terraform"],
+      "tech": ["Python (FastAPI)", "PostgreSQL", "Terraform (AWS)", "Docker", "OpenAPI/Swagger"],
+      "date": "Ongoing project",
+      "role": "Backend & Infrastructure Lead",
+      "domain": "Cybersecurity / Fintech Governance",
+      "description": [
+        "In modern enterprise banking, the rapid shift to microservices has created a hidden security debt: Shadow and Zombie APIs. Zombie APIs are deprecated endpoints that remain active, lacking security patches. Shadow APIs are undocumented endpoints created during development. For a financial institution, these represent unmonitored attack vectors. Ignar API Shield was built to provide automated, real-time discovery and remediation for these vulnerabilities.",
+        "As the Backend Lead, I architected a multi-stage Discovery Engine. The system ingests existing OpenAPI/Swagger specifications to create a \"Known State\" map. We developed a custom ingestion layer that processes live traffic logs. If a request hits an endpoint that doesn't exist in the specs, it's flagged as a Shadow API.",
+        "One unique feature is \"Infrastructure as Code\" integration. When a Zombie API is confirmed for decommissioning, the system can generate a pull request to update AWS API Gateway configuration, closing the vulnerability at the infrastructure level with a single click."
+      ],
+      "howIDidIt": "I designed a discovery engine that compares live traffic against OpenAPI specs and integrated with Terraform for automated remediation."
+    },
+    {
+      "slug": "pneumonia-detection-ai",
+      "title": "Pneumonia Detection AI: High-Recall Medical Imaging",
+      "shortTitle": "Pneumonia Detection AI",
+      "skills": ["TensorFlow", "Grad-CAM"],
+      "tech": ["TensorFlow", "Keras", "OpenCV", "Matplotlib", "Grad-CAM"],
+      "date": "Aug 2024",
+      "role": "ML Engineering Lead",
+      "domain": "Medical Imaging / Computer Vision",
+      "description": [
+        "In medical screening, the cost of a \"False Negative\" is infinitely higher than a \"False Positive\". For our Pneumonia Detection AI, the primary objective was Medical Recall — to ensure that if pneumonia was present in a chest X-ray, the model would catch it 99% of the time.",
+        "I designed a custom CNN with four primary convolutional blocks, each utilizing Batch Normalization and Max-Pooling. We used Global Average Pooling to reduce overfitting. To make the model robust, I implemented rigorous data augmentation including horizontal flips, rotations (up to 20 degrees), and brightness adjustments.",
+        "To solve the \"Black Box\" problem, I integrated Grad-CAM. It produces a heatmap overlaid on the original X-ray, allowing physicians to see exactly where the model is looking. The model achieved 99% Medical Recall, missing only 3 cases out of 390 in the test set."
+      ],
+      "howIDidIt": "I built a custom CNN architecture with heavy focus on recall and used Grad-CAM for model explainability in a clinical context."
+    },
+    {
+      "slug": "aca",
+      "title": "ACA: LLM-Driven Automation for Job Applications",
+      "shortTitle": "ACA (Autonomous Career Agent)",
+      "skills": ["Gemini API", "Playwright"],
+      "tech": ["Python", "Google Gemini API", "Playwright", "Streamlit", "PyPDF"],
+      "date": "Ongoing project",
+      "role": "Creator / Builder",
+      "domain": "LLM Automation / Productivity",
+      "description": [
+        "The modern internship search is a numbers game requiring high-quality tailoring. ACA transforms the 1-hour manual chore of application tailoring into a 2-minute automated pipeline. It uses a \"Power Scout\" module that monitors job boards and an \"AI Asset Factory\" using Google Gemini API to perform semantic matching between the user's resume and job descriptions.",
+        "The final phase is a Form-Filler using Playwright (Chromium) that navigates complex job portals. To maintain a \"Human-in-the-loop\" philosophy, ACA populates data and hands control back to the user for final review."
+      ],
+      "howIDidIt": "I combined LLM-based semantic matching with browser automation to streamline the entire application process."
+    },
+    {
+      "slug": "quantitative-market-analysis",
+      "title": "Quantitative Market Analysis Platform: High-Fidelity Equity Simulation",
+      "shortTitle": "Quantitative Market Analysis Platform",
+      "skills": ["NumPy", "Real-time APIs"],
+      "tech": ["Python", "NumPy", "Pandas", "Matplotlib", "Real-time APIs"],
+      "date": "Ongoing project",
+      "role": "Lead Developer",
+      "domain": "Fintech / Market Simulation",
+      "description": [
+        "The Quantitative Market Analysis Platform provides a high-fidelity environment where aspiring quantitative analysts can test hypotheses and simulate complex equity trades without financial risk. I built a vectorized state engine using NumPy and Pandas that recalculates portfolio metrics across hundreds of symbols in milliseconds.",
+        "I implemented algorithms simulating \"Price Impact\" — how a large buy order moves the market. The platform includes technical indicators (Moving Averages, RSI, Bollinger Bands) built from scratch for backtesting."
+      ],
+      "howIDidIt": "I focused on performance by using vectorized operations for all financial calculations and simulated market dynamics like price impact."
+    },
+    {
+      "slug": "recruitment-analytics-engine",
+      "title": "Recruitment Analytics Engine: Operational Efficiency through Automation",
+      "shortTitle": "Recruitment Analytics Engine",
+      "skills": ["Python", "SQLite"],
+      "tech": ["Python", "Shell Scripting (Bash)", "SQLite", "CLI Design"],
+      "date": "Ongoing project",
+      "role": "Developer / Process Consultant",
+      "domain": "Operational Analytics",
+      "description": [
+        "This engine automates tracking and analysis of 50+ corporate interactions. Instead of spreadsheets, I built a CLI-to-database pipeline using Bash scripts for preprocessing and SQLite for persistence. The Python reporting module generates \"Efficiency Snapshots\" measuring Conversion Ratio at each stage of the application funnel.",
+        "Result: 65% reduction in manual data entry time."
+      ],
+      "howIDidIt": "I automated the data ingestion process with shell scripts and built a robust reporting layer on top of SQLite."
+    },
+    {
+      "slug": "hybrid-cryptography-framework",
+      "title": "Hybrid Cryptography Framework: AES-256 + RC6",
+      "shortTitle": "Hybrid Cryptography Framework",
+      "skills": ["AES-256", "RC6"],
+      "tech": ["Python", "C++, AES-256", "RC6", "Cryptographic benchmarking"],
+      "date": "Jun 2024 - Aug 2024",
+      "role": "Research Contributor",
+      "domain": "Cybersecurity / Applied Mathematics",
+      "description": [
+        "This research combines the industrial-grade security of AES-256 with the high-throughput performance of RC6. The hybrid model achieved a 1.8x speedup in encryption/decryption cycles compared to standalone AES-256 on the same hardware, without measurable loss in cryptographic strength. The research is prepared for peer review."
+      ],
+      "howIDidIt": "I implemented and benchmarked a hybrid cryptographic approach that balances security and performance."
+    }
+  ],
+  "achievements": [
+    {
+      "title": "Smart India Hackathon (SIH) 2024 National Finalist",
+      "description": "Selected as one of the top teams in India for Arogya Saathi, a healthcare platform designed to serve 5M+ citizens."
+    },
+    {
+      "title": "Academic Excellence & Mathematics Topper",
+      "description": "Ranked in the top 0.1% in Mathematics and maintained a 9.45/10 CGPA, placing in the top 5% of IT department."
+    },
+    {
+      "title": "Military Leadership (Adjutant Rank)",
+      "description": "Held the prestigious Adjutant rank at Rashtriya Military School, Belgaum, leading battalion-level operations."
+    },
+    {
+      "title": "Research Performance Breakthrough",
+      "description": "Developed a Hybrid Cryptography Framework (AES-256 + RC6) that achieved 1.8x encryption speedup."
+    },
+    {
+      "title": "Business Case Competition Winner",
+      "description": "Awarded for strategic problem-solving and technical pitching."
+    }
+  ],
+  "skills": {
+    "Programming Languages": ["Python (Advanced)", "TypeScript/JavaScript (Advanced)", "SQL (PostgreSQL, SQLite)", "C++", "Shell Scripting (Linux/Bash)", "LaTeX", "HTML5", "CSS3"],
+    "AI, Machine Learning & Research": ["RAG", "CNNs", "Microservices", "LangChain", "Google Gemini API", "Mistral-7B", "Prompt Engineering", "TensorFlow", "Keras", "PyTorch", "SpaCy", "OpenCV", "FAISS", "ChromaDB", "Milvus", "Pandas", "NumPy", "Matplotlib", "Hybrid Cryptography", "Clinical Decision Support Systems"],
+    "Full-Stack & Backend": ["Next.js 15 (App Router)", "React", "Tailwind CSS", "Shadcn/UI", "Streamlit", "FastAPI", "Node.js (Express)", "Django", "Redis (Distributed Locking)", "RESTful APIs", "SQLAlchemy"],
+    "Databases & Infrastructure": ["PostgreSQL", "MongoDB", "Redis", "Neo4j", "SQLite", "Docker", "Docker Compose", "Terraform (AWS)", "AWS (EC2, S3)", "Git/GitHub", "CI/CD", "Linux Administration"],
+    "Cybersecurity & Systems": ["API Security", "Zombie API Shielding", "AES-256", "RC6", "High-concurrency simulations"],
+    "Strategic Leadership & Soft Skills": ["Military Leadership", "Technical Pitching", "Strategic Execution", "High-Pressure Decision Making", "Mathematics Topper (Top 0.1%)"],
+    "Desktop & Tooling": ["Python Tkinter", "LaTeX", "Markdown"]
+  },
+  "education": [
+    {
+      "slug": "school",
+      "title": "Rashtriya Military School, Belgaum",
+      "type": "Schooling"
+    },
+    {
+      "slug": "college",
+      "title": "Bharati Vidyapeeth College of Engineering, Pune",
+      "type": "B.Tech in Information Technology"
+    }
+  ],
+  "certifications": [],
+  "hobbies": [
+    "Strategic Gaming (Chess)",
+    "Open Source Contributions",
+    "Endurance Training",
+    "Tech & Geopolitics Reading",
+    "Mentoring"
+  ],
+  "personalInfo": {
+    "name": "Nishant Kumar",
+    "email": "contact.nishantk4671@gmail.com",
+    "phone": "+91 8468002278",
+    "github": "https://github.com/Nishant-Kumar-Dev",
+    "linkedin": "https://linkedin.com/in/nishantkumar4671",
+    "instagram": "https://instagram.com/nishant.kumar.dev"
+  }
+}

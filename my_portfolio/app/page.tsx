@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import ProjectsSection from "@/components/ProjectsSection";
 import EducationSection from "@/components/EducationSection";
+import CertificationsSection from "@/components/CertificationsSection";
 import AchievementsSection from "@/components/AchievementsSection";
 import { HobbiesSection, SkillsSection } from "@/components/SkillsAndHobbies";
 import { ExperienceSection, ResumeSection } from "@/components/ExperienceAndResume";
@@ -17,6 +18,10 @@ export default function Home() {
       
       <FadeIn>
         <EducationSection />
+      </FadeIn>
+
+      <FadeIn>
+        <CertificationsSection />
       </FadeIn>
       
       <FadeIn>
