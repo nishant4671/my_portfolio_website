@@ -112,6 +112,11 @@ export default function AdminPage() {
             <CardTitle className="text-2xl font-bold">Admin Login</CardTitle>
           </CardHeader>
           <CardContent>
+            {message.text && (
+              <div className="p-3 rounded-lg mb-4 bg-red-500/10 border border-red-500/50 text-red-500 text-sm">
+                {message.text}
+              </div>
+            )}
             <form onSubmit={handleLogin} className="space-y-4">
               <input
                 type="password"
@@ -121,8 +126,8 @@ export default function AdminPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <Button type="submit" className="w-full">
-                Enter Dashboard
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? "Verifying..." : "Enter Dashboard"}
               </Button>
             </form>
           </CardContent>
