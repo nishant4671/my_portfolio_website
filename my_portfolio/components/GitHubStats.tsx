@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Github, Star, Users, GitBranch, Trophy } from "lucide-react";
 import Link from "next/link";
 import { personalInfo } from "@/lib/data";
@@ -20,11 +19,15 @@ const GitHubStats = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await axios.get("/api/github");
-        setStats(response.data);
+        const response = await fetch("/api/github");
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch GitHub stats");
+        }
+
+        setStats(await response.json());
       } catch (error) {
         console.error("Error fetching GitHub stats:", error);
-        // Fallback or handle error
       } finally {
         setLoading(false);
       }
@@ -44,6 +47,8 @@ const GitHubStats = () => {
     <Link
       href={personalInfo.github}
       target="_blank"
+      rel="noopener noreferrer"
+      aria-label="View GitHub profile"
       className="flex flex-wrap justify-center gap-4 mt-4"
     >
       {loading

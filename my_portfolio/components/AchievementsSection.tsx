@@ -1,6 +1,3 @@
-"use client";
-
-import React from "react";
 import { achievements } from "@/lib/data";
 import { Trophy } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";

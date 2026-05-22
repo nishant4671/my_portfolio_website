@@ -1,6 +1,3 @@
-"use client";
-
-import React from "react";
 import { hobbies, skills } from "@/lib/data";
 import { Badge } from "@/components/ui/Badge";
 

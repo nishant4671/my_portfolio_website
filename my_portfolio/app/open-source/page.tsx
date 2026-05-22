@@ -7,7 +7,7 @@ export default function OpenSourcePage() {
       <div className="text-center p-12 border border-dashed border-border rounded-3xl max-w-md mx-6">
         <h1 className="text-4xl font-bold mb-4 tracking-tighter">Coming soon</h1>
         <p className="text-muted-foreground mb-12 leading-relaxed">
-          I'm currently working on some exciting open-source projects. Check back later!
+          I&apos;m currently working on some exciting open-source projects. Check back later!
         </p>
         <Link 
           href="/" 

@@ -1,15 +1,12 @@
-"use client";
-
-import React from "react";
 import Link from "next/link";
 import { projects } from "@/lib/data";
 import { Badge } from "@/components/ui/Badge";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/Card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { ArrowUpRight } from "lucide-react";
 
 const ProjectCard = ({ project }: { project: any }) => {
   return (
-    <Link href={`/projects/${project.slug}`} target="_blank">
+    <Link href={`/projects/${project.slug}`} target="_blank" rel="noopener noreferrer">
       <Card className="project-card-glow h-full flex flex-col bg-card border-border hover:translate-y-[-4px] transition-all duration-300">
         <CardHeader>
           <div className="flex justify-between items-start">
@@ -42,7 +39,7 @@ const ProjectsSection = () => {
           ))}
           
           {/* Open Source Card */}
-          <Link href="/open-source" target="_blank">
+          <Link href="/open-source" target="_blank" rel="noopener noreferrer">
             <Card className="project-card-glow h-full flex items-center justify-center bg-card border-border border-dashed hover:translate-y-[-4px] transition-all duration-300">
               <div className="text-center p-6">
                 <CardTitle className="text-xl font-bold">Open Source</CardTitle>
